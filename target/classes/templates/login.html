@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(title='Iniciar Sesión', content=~{::section})}">
+
+<body>
+    <section style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+        <div class="card" style="width: 100%; max-width: 400px;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Bienvenido de nuevo</h2>
+
+            <div th:if="${param.error}"
+                style="background: rgba(239, 68, 68, 0.2); color: var(--danger); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; font-size: 0.875rem;">
+                Email o contraseña incorrectos.
+            </div>
+
+            <div th:if="${param.logout}"
+                style="background: rgba(16, 185, 129, 0.2); color: var(--success); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; font-size: 0.875rem;">
+                Has cerrado sesión correctamente.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Email</label>
+                    <input type="email" id="username" name="username" required placeholder="tu@email.com" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••" />
+                </div>
+
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; padding: 0.75rem; margin-top: 1rem;">Entrar</button>
+            </form>
+
+            <div style="margin-top: 1.5rem; text-align: center; font-size: 0.875rem; color: var(--text-muted);">
+                ¿No tienes cuenta? <a th:href="@{/registro}"
+                    style="color: var(--primary); text-decoration: none;">Regístrate aquí</a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(title='Bienvenido', content=~{::section})}">
+
+<body>
+    <section style="text-align: center; padding: 4rem 1rem;">
+        <h1
+            style="font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(to right, var(--primary), #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+            Gestiona tus tareas con elegancia
+        </h1>
+        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem;">
+            Una herramienta simple, potente y moderna para mantener tu productividad al máximo.
+            Sincronización automática en JSON y persistencia robusta.
+        </p>
+
+        <div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/registro}" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Comenzar
+                ahora (Gratis)</a>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                ¿Ya tienes cuenta? <a th:href="@{/login}" style="color: var(--primary);">Inicia sesión</a>
+            </p>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/tareas}" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Ir a mis
+                tareas</a>
+        </div>
+
+        <div
+            style="margin-top: 5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div class="card">
+                <h3 style="color: var(--primary);">Rápido</h3>
+                <p>Interfaz optimizada para la velocidad y facilidad de uso.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary);">Seguro</h3>
+                <p>Tus datos están protegidos con seguridad de grado industrial.</p>
+            </div>
+            <div class="card">
+                <h3 style="color: var(--primary);">Transparente</h3>
+                <p>Exportación automática a JSON para que siempre tengas tus datos.</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

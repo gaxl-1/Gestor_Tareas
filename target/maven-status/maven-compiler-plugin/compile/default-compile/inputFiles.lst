@@ -1,0 +1,17 @@
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/modelo/Cuenta.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/controlador/UsuarioControlador.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/servicio/JsonExportService.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/seguridad/SecurityConfig.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/controlador/AuthControlador.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/modelo/Usuario.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/servicio/CuentaServicio.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/modelo/Tarea.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/controlador/BuscarControlador.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/servicio/TareaServicio.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/controlador/TareaControlador.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/repositorio/TareaRepositorio.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/GestorTareasApplication.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/controlador/PrincipalControlador.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/repositorio/CuentaRepositorio.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/servicio/UsuarioServicio.java
+/home/gael/IdeaProjects/Gestor_Tareas/src/main/java/com/proyecto/repositorio/UsuarioRepositorio.java

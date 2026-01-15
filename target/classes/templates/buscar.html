@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(title='Buscar Tareas', content=~{::section})}">
+
+<body>
+    <section>
+        <h1>Buscador de Tareas</h1>
+
+        <div class="card">
+            <form th:action="@{/buscar/tarea}" method="get" style="display: flex; gap: 1rem; align-items: flex-end;">
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label for="titulo">Buscar por Título</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ej: Comprar..." required />
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+
+        <div th:if="${tareas != null}" class="card">
+            <h2 th:text="'Resultados (' + ${#lists.size(tareas)} + ')'">Resultados</h2>
+
+            <div th:if="${#lists.isEmpty(tareas)}" style="text-align: center; color: var(--text-muted); padding: 1rem;">
+                No se encontraron tareas con ese título.
+            </div>
+
+            <div th:each="tarea : ${tareas}" class="task-item">
+                <div class="task-info">
+                    <h3 th:text="${tarea.titulo}">Título</h3>
+                    <p th:text="${tarea.descripcion}">Descripción</p>
+                    <small th:text="'Asignado a: ' + ${tarea.usuario.nombre}" style="color: var(--text-muted);"></small>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <a th:href="@{/tareas/editar/{id}(id=${tarea.id})}" class="btn"
+                        style="background: var(--border);">Editar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

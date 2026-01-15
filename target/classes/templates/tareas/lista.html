@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: html(title='Mis Tareas', content=~{::section})}">
+
+<body>
+    <section>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1>Mis Tareas</h1>
+            <a th:href="@{/tareas/nuevo}" class="btn btn-primary">Crear Nueva Tarea</a>
+        </div>
+
+        <div class="card">
+            <div th:if="${#lists.isEmpty(tareas)}" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                <p>No tienes tareas asignadas. ¡Empieza creando una!</p>
+            </div>
+
+            <div th:each="tarea : ${tareas}" class="task-item">
+                <div class="task-info">
+                    <h3 th:text="${tarea.titulo}">Título de la Tarea</h3>
+                    <p th:text="${tarea.descripcion}">Descripción rápida de lo que hay que hacer...</p>
+                    <div style="margin-top: 0.5rem;">
+                        <span class="status-badge"
+                            th:classappend="${tarea.completada ? 'status-completada' : 'status-pendiente'}"
+                            th:text="${tarea.completada ? 'Completada' : 'Pendiente'}">
+                            Pendiente
+                        </span>
+                        <small th:text="' - Asignado a: ' + ${tarea.usuario.nombre}"
+                            style="color: var(--text-muted);"></small>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <a th:href="@{/tareas/editar/{id}(id=${tarea.id})}" class="btn"
+                        style="background: var(--border);">Editar</a>
+                    <a th:href="@{/tareas/eliminar/{id}(id=${tarea.id})}" class="btn btn-danger"
+                        onclick="return confirm('¿Estás seguro de eliminar esta tarea?')">Eliminar</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; text-align: right;">
+            <p style="font-size: 0.8rem; color: var(--text-muted);">
+                * Las tareas se sincronizan automáticamente con <code>data/tasks.json</code>
+            </p>
+        </div>
+    </section>
+</body>
+
+</html>
